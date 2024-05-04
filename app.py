@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from flask_mail import Mail, Message
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user, UserMixin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import aliased
@@ -52,6 +53,19 @@ app.config['SQLALCHEMY_DATABASE_URI'] = config('SQLALCHEMY_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
+app.config['SECRET_KEY'] = 'payfiltapp12345'
+
+
+# EMAIL CONFIG
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = config('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = config('MAIL_PASSWORD')
+mail = Mail(app)
+
+# SQLAlchemy
 db = SQLAlchemy(app)
 
 
