@@ -1,0 +1,60 @@
+{% extends './base.html' %}
+
+{% block title %}Home | PayFilt{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+{% endblock %}
+
+{% block menu %}
+{{ super() }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center mb-4">Bienvenido a PayFilt</h1>
+</div>
+
+<div class="container">
+    <div class="row align-items-center mb-4">
+        <div class="col col-lg-4 text-center">
+            <img src="{{url_for('static', filename='img/fraud-banner.svg')}}" alt=""
+                width="100%" />
+        </div>
+        <div class="col-md text-center">
+            PayFilt es un sistema web inteligente diseñado para la detección de fraude en operaciones digitales con tarjetas de crédito y débito. <br><br>
+            Este sistema web brinda desde servicios de detección de fraude en línea para operaciones digitales con tarjeta y permite la detección de fraude en conjuntos de datos de operaciones digitales ya finalizadas. Asimismo, se brinda acceso a una sección de análisis en donde se pueden visualizar métricas definidas en el sistema para validar el rendimiento de las predicciones de fraude sobre los conjuntos de datos de operaciones digitales.
+        </div>
+    </div>
+    <hr class="hr"/>
+    <div class="row align-items-center mb-5">
+        <div class="col text-center">
+            <h3 class="text-center mb-4">Detección en línea</h3>
+            <img src="{{url_for('static', filename='img/fraud-detection.png')}}" alt=""
+                width="50%" />
+            <p>
+                Realice detecciones de fraude para operaciones con tarjetas de crédito en curso mediante el uso del servicio de detección web de PayFilt.
+            </p>
+        </div>
+        <div class="col text-center">
+            <h3 class="text-center mb-4">Detección en datasets</h3>
+            <img src="{{url_for('static', filename='img/fraud-dataset.png')}}" alt=""
+                width="50%" />
+            <p>
+                Realice detecciones de fraude en conjuntos de datos de operaciones con tarjetas de crédito ya finalizadas y evaluadas con el fines de diagnóstico.
+            </p>
+        </div>
+        <div class="col text-center">
+            <h3 class="text-center mb-4">Análisis en línea y datasets</h3>
+            <img src="{{url_for('static', filename='img/fraud-analysis.png')}}" alt=""
+                width="50%" />
+            <p>
+                Visualice métricas de análisis para la detección de fraude para operaciones con tarjetas de crédito en curso y en conjuntos de datos ya finalizadas y evaluadas.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block customJS %}
+{% endblock %}

@@ -1,0 +1,35 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #222222;
+}
+
+.card {
+    background-color: #222222;
+    border: none;
+    color: white;
+}
+
+.form-signup {
+    width: 100%;
+    margin: auto;
+}
+
+.form-signup .form-floating {
+    color:black;
+}
+
+.form-signup .form-floating:focus-within {
+    z-index: 2;
+}
+
+.btn {
+    padding-bottom: 8px !important;
+    padding-top: 8px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important; 
+    font-size: 20px !important;
+}

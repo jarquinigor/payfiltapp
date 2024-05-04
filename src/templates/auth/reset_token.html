@@ -1,0 +1,39 @@
+{% extends "./base.html" %}
+
+{% block title %}Sign up | Payfilt{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/signup.css')}}">
+{% endblock %}
+
+{% block menu %}
+{% endblock %}
+
+{% block body %}
+<div class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5" style="text-align: center;">
+                        <img class="mb-4" src="{{url_for('static', filename='img/payfilt.png')}}" alt="" width="70%">
+                        <h3 class="h3 mb-4 fw-normal text-center">Recupera tu cuenta</h3>
+                        <form method="POST" action="">
+                            {{ form.hidden_tag() }}
+                            <div class="d-flex align-items-center justify-content-center pb-4">
+                                {{ form.submit(class="btn btn-info") }}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+{% block customJS %}
+
+<script src="{{url_for('static', filename='js/signup.js')}}"></script>
+
+{% endblock %}

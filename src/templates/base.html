@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='img/payfilt-logo.ico')}}">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Bootstrap -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+        integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg=="
+        crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/libs/bootstrap-5.3.0/bootstrap-5.3.0.min.css')}}"></link>
+    <!-- Custom CSS -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Be Vietnam' rel='stylesheet'> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/fonts/be-vietnam/be-vietnam.css')}}"></link>
+    <!-- Font Awesome -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/libs/font-awesome-6.4.2/font-awesome-6.4.2.all.min.css')}}"></link>
+    <!-- JQuery Confirm -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"> -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/libs/jquery-confirm-3.3.2/jquery-confirm-3.3.2.min.css')}}"></link>
+    {% block customCSS %}
+    {% endblock %}
+</head>
+
+<body style="color:white; font-family: 'Be Vietnam'">
+    {% block menu %}
+    <div id="app" class="container">
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #222222 !important;">
+            <img class="navbar-brand" src="{{url_for('static', filename='img/payfilt.png')}}" alt="" height="50px">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{url_for('home')}}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Detección            
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{url_for('online')}}">En línea</a>
+                                    <a class="dropdown-item" href="{{url_for('datasets')}}">Dataset</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Análisis            
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">En línea</a>
+                                    <a class="dropdown-item" href="{{url_for('datasetsAnalysis')}}">Dataset</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <div data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Configuración">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">                  
+                                <i class="fas fa-cog"></i>             
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{url_for('profile')}}">Datos de PayFilt</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{url_for('logout')}}">Cerrar sesión</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <hr class="hr" style="margin-top: 0px;"/>
+    {% endblock %}
+
+    {% block body %}
+    {% endblock %}
+
+    <!-- Jquery -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous"></script> -->
+    <script type="text/javascript" src="{{url_for('static', filename='js/libs/jquery-3.6.4/jquery-3.6.4.min.js')}}"></script>
+    <!-- Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script> -->
+    <script type="text/javascript" src="{{url_for('static', filename='js/libs/popperjs-2.11.8/popper-2.11.8.min.js')}}"></script>
+    <!-- Bootstrap -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" crossorigin="anonymous"></script> -->
+    <script type="text/javascript" src="{{url_for('static', filename='js/libs/bootstrap-5.3.0/bootstrap-5.3.0.min.js')}}"></script>
+    <!-- JQuery Confirm -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script> -->
+    <script type="text/javascript" src="{{url_for('static', filename='js/alerts/jquery-confirm-3.3.2/jquery-confirm-3.3.2.min.js')}}"></script>
+    {% block customJS %}
+    {% endblock %}
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
+</body>
+
+</html>

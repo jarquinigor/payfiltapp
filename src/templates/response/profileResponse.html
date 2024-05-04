@@ -1,0 +1,70 @@
+<div class="col-lg-4">
+    <div class="card mb-4">
+        <div class="card-body text-center">
+            <img src="{{url_for('static', filename='img/empresa.png')}}"
+                alt="avatar" class="img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{ current_user.razonSocial }}</h5>
+            <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary" id="actualizacionDatos" onclick="ActualizacionDatos()">Actualización de datos</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-8">
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row" hidden="hidden">
+                <div class="col-sm-3">
+                    <p class="mb-0">ID</p>
+                </div>
+                <div class="col-sm-9">
+                    <p id="id" class="text-muted mb-0">{{ current_user.id }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <p class="mb-0">Razón social</p>
+                </div>
+                <div class="col-sm-9">
+                    <p id="razonSocial" class="text-muted mb-0">{{ current_user.razonSocial }}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <p class="mb-0">RUC</p>
+                </div>
+                <div class="col-sm-9">
+                    <p id="ruc" class="text-muted mb-0">{{ current_user.ruc }}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                    <p id="email" class="text-muted mb-0">{{ current_user.email }}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                    <p id="telefono" class="text-muted mb-0">{{ current_user.telefono }}</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <p class="mb-0">Address</p>
+                </div>
+                <div class="col-sm-9">
+                    <p id="direccion" class="text-muted mb-0">{{ current_user.direccion }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

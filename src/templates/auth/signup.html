@@ -1,0 +1,114 @@
+{% extends './base.html' %}
+
+{% block title %}Sign up | Payfilt{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/signup.css')}}">
+{% endblock %}
+
+{% block menu %}
+{% endblock %}
+
+{% block body %}
+<div class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <br>
+                        {% for message in messages %}
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <strong>{{ message }}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                        <form class="form-signup w-100 m-auto text-center" action="/register" method="POST">
+                            <img class="mb-4" src="{{url_for('static', filename='img/payfilt.png')}}" alt=""
+                                width="100%">
+                            <h3 class="h3 mb-4 fw-normal">Registrate</h3>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="razonSocial" name="razonSocial"
+                                            placeholder="Razón social" minlength="5" maxlength="50" required>
+                                        <label for="razonSocial">Razón social</label>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="ruc" name="ruc" placeholder="RUC" minlength="11" maxlength="11" required>
+                                        <label for="ruc">RUC</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            placeholder="Email" minlength="12" maxlength="30" required>
+                                        <label for="email">Email</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="telefono" name="telefono"
+                                            placeholder="Teléfono" pattern="[1-9]{1}[0-9]{8}" required>
+                                        <label for="telefono">Teléfono</label>
+                                    </div>
+                                    <small>Formato: 965365425</small>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 d-flex align-items-center form-floating">
+
+                                    <div class="w-100 form-floating">
+                                        <input type="text" class="form-control" id="direccion" name="direccion"
+                                            placeholder="Dirección" minlength="15" maxlength="60" required>
+                                        <label for="direccion">Dirección</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col mt-3 pt-2" style="text-align: right">
+                                    <input class="btn btn-primary btn-lg" type="submit" value="Sign up" />
+                                </div>
+                                <div class="col mt-3 pt-2" style="text-align: left">
+                                    <a class="btn btn-secondary btn-lg" type="button"
+                                        href="{{url_for('index')}}">Cancelar</a>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block customJS %}
+
+<script src="{{url_for('static', filename='js/signup.js')}}"></script>
+
+{% endblock %}

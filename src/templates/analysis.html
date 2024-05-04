@@ -1,0 +1,157 @@
+{% extends './base.html' %}
+
+{% block title %}En línea | PayFilt{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/analysis.css')}}">
+{% endblock %}
+
+{% block menu %}
+{{ super() }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center mb-4">Analisis de dataset</h1>
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{{ dataset.nombreDataset }}</h1>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Accuracy</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.accuracy }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Precision</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.precision }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Recall</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.recall }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                F1-score</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.f1_score }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                MSE</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.mse }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-secondary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
+                                MAE</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.mae }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-dark shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+                                RMSE</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.rmse }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block customJS %}
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/highcharts-11.2.0/highcharts-11.2.0.js')}}"></script>
+
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/highcharts-11.2.0/highcharts-series-label-11.2.0.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/highcharts-11.2.0/highcharts-exporting-11.2.0.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/highcharts-11.2.0/highcharts-export-data-11.2.0.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/highcharts-11.2.0/highcharts-accessibility-11.2.0.js')}}"></script>
+
+<!-- <script type="text/javascript" src="{{url_for('static', filename='js/analysis.js')}}"></script> -->
+{% endblock %}

@@ -1,0 +1,11 @@
+{% if lstDatasets %}
+{% for dataset in lstDatasets %}
+{% if dataset.estado == 'A' %}
+<option value="{{ dataset.idDataset }}" selected>{{ dataset.nombreDataset }}</option>
+{% else %}
+<option value="{{ dataset.idDataset }}">{{ dataset.nombreDataset }}</option>
+{% endif %}
+{% endfor %}
+{% else %}
+<option disabled selected value="0"> No hay datasets cargados </option>
+{% endif %}

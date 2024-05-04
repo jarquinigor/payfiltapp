@@ -1,0 +1,150 @@
+{% extends './base.html' %}
+
+{% block title %}Home | PayFilt{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
+{% endblock %}
+
+{% block menu %}
+{{ super() }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center mb-4">Perfil de empresa PayFilt</h1>
+</div>
+
+<div class="container">
+    <div class="container py-5" style="padding-left: 0; padding-right: 0;">
+        <div class="row" id="datosEmpresa">
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <img src="{{url_for('static', filename='img/empresa.png')}}"
+                            alt="avatar" class="img-fluid" style="width: 150px;">
+                        <h5 class="my-3">{{ current_user.razonSocial }}</h5>
+                        <div class="d-flex justify-content-center mb-2">
+                            <button type="button" class="btn btn-primary" id="actualizacionDatos" onclick="ActualizacionDatos()">Actualización de datos</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row" hidden="hidden">
+                            <div class="col-sm-3">
+                                <p class="mb-0">ID</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p id="id" class="text-muted mb-0">{{ current_user.id }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Razón social</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p id="razonSocial" class="text-muted mb-0">{{ current_user.razonSocial }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">RUC</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p id="ruc" class="text-muted mb-0">{{ current_user.ruc }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Email</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p id="email" class="text-muted mb-0">{{ current_user.email }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Phone</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p id="telefono" class="text-muted mb-0">{{ current_user.telefono }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Address</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p id="direccion" class="text-muted mb-0">{{ current_user.direccion }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="empModal" role="dialog" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Actualización de datos</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                    <div class="form-floating mb-4" hidden="hidden">
+                        <input type="text" id="idM" class="form-control" name="idM" placeholder=""/>
+                        <label class="form-label" for="idM">ID</label>
+                    </div>
+                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                    <div class="form-floating mb-4">
+                        <input type="text" id="razonSocialM" class="form-control" name="razonSocialM" placeholder=""/>
+                        <label class="form-label" for="razonSocialM">Razon social</label>
+                    </div>
+            
+                    <!-- Text input -->
+                    <div class="form-floating mb-4">
+                        <input type="text" id="rucM" class="form-control" name="rucM" placeholder=""/>
+                        <label class="form-label" for="rucM">RUC</label>
+                    </div>
+            
+                    <!-- Text input -->
+                    <div class="form-floating mb-4">
+                        <input type="text" id="telefonoM" class="form-control" name="telefonoM" placeholder=""/>
+                        <label class="form-label" for="telefonoM">Telefono</label>
+                    </div>
+            
+                    <!-- Email input -->
+                    <div class="form-floating mb-4">
+                        <input type="email" id="emailM" class="form-control" name="emailM" placeholder=""/>
+                        <label class="form-label" for="emailM">Email</label>
+                    </div>
+            
+                    <!-- Number input -->
+                    <div class="form-floating mb-4">
+                        <input type="text" id="direccionM" class="form-control" name="direccionM" placeholder=""/>
+                        <label class="form-label" for="direccionM">Dirección</label>
+                    </div>        
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-block" onclick="ActualizarDatos()">Actualizar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Regresar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block customJS %}
+<script type="text/javascript" src="{{url_for('static', filename='js/utils/metodoGenericos.js')}}"></script>
+<script src="{{url_for('static', filename='js/profile.js')}}"></script>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends './base.html' %}
+
+{% block title %}Datasets | PayFilt{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/libs/datatables-dt-1.13.6-r-2.5.0/datatables-dt-1.13.6-r-2.5.0.min.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='css/libs/datatables-buttons-2.4.2/datatables-buttons-2.4.2.min.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='css/libs/dataTables.dateTime-1.5.1/dataTables.dateTime-1.5.1.min.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}" />
+<link rel="stylesheet" href="{{url_for('static', filename='css/dataset.css')}}" />
+{% endblock %}
+
+{% block menu %}
+{{ super() }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <h1 class="text-center mb-4">Datasets</h1>
+
+  <!-- <form action="#" method="POST" enctype="multipart/form-data" class="mb-4">
+      <input type="file" name="file" />
+      <input type="submit" />
+    </form> -->
+
+  <p id="idDataset" hidden>{{ datasetActivo.idDataset }}</p>
+
+  <form id="dataset_form" enctype="multipart/form-data">
+    <label class="form-label mb-2">Carga Dataset</label>
+    <div class="input-group mb-4">
+      <input type="file" class="form-control" id="dataset" name="dataset" aria-describedby="" aria-label="Upload"
+        accept=".csv">
+      <button class="btn btn-outline-secondary" type="button" id="upload">Upload</button>
+    </div>
+  </form>
+
+  <form id="act_dataset_form" enctype="multipart/form-data">
+    <label class="mb-2">Activación Dataset</label>
+    <div class="input-group mb-4">
+      <select class="form-select" aria-label="Default select example" id="select-dataset">
+        {% if lstDatasets %}
+        {% for dataset in lstDatasets %}
+        {% if dataset.estado == 'A' %}
+        <option value="{{ dataset.idDataset }}" selected>{{ dataset.nombreDataset }}</option>
+        {% else %}
+        <option value="{{ dataset.idDataset }}">{{ dataset.nombreDataset }}</option>
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        <option disabled selected value="0"> No hay datasets cargados </option>
+        {% endif %}
+      </select>
+      <button class="btn btn-outline-secondary" type="button" id="activar">Activar</button>
+    </div>
+  </form>
+
+  <table id="tbl_dataset" class="table table-hover table-bordered table-lg" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <!-- <th scope="col">id_operacion</th> -->
+        <th scope="col">transaction_time</th>
+        <th scope="col">credit_card_number</th>
+        <th scope="col">zip</th>
+        <th scope="col">merchant</th>
+        <th scope="col">category</th>
+        <th scope="col">amount</th>
+        <th scope="col">first</th>
+        <th scope="col">last</th>
+        <th scope="col">state</th>
+        <th scope="col">is_fraud</th>
+        <th scope="col">prediction</th>  
+        <th scope="col">city</th>
+        <th scope="col">street</th> 
+        <th scope="col">lat</th>
+        <th scope="col">long</th>
+        <th scope="col">job</th>
+        <th scope="col">dob</th>
+        <th scope="col">transaction_id</th>
+        <th scope="col">merch_lat</th>
+        <th scope="col">merch_long</th>      
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block customJS %}
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/datatables-dt-1.13.6-r-2.5.0/datatables-dt-1.13.6-r-2.5.0.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/datatables-buttons-2.4.2/datatables-buttons-2.4.2.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/jszip-3.10.1/jszip-3.10.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/pdfmake-0.1.53/pdfmake-0.1.53.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/pdfmake-0.1.53/vfs_fonts-0.1.53.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/datatables-buttons-2.4.2/buttons.html5-2.4.2.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/datatables-buttons-2.4.2/buttons.print-2.4.2.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/dataTables.dateTime-1.5.1/dataTables.dateTime-1.5.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/libs/moment-2.29.2/moment-2.29.2.min.js')}}"></script>
+
+<script type="text/javascript" src="{{url_for('static', filename='js/utils/metodoGenericos.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/dataset.js')}}"></script>
+{% endblock %}

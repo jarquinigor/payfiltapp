@@ -1,0 +1,41 @@
+body {
+    background-color: #222222;
+}
+
+@media (min-width: 768px) {
+    .navbar-brand.abs {
+        position: absolute;
+        width: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+}
+
+.title {
+    font-size: calc(1.525rem + 3.3vw);
+}
+
+@media (min-width: 1200px) {
+    .title {
+        font-size: 4rem;
+    }
+}
+
+.form-signup {
+    width: 100%;
+    margin: auto;
+}
+
+.form-signup .form-floating {
+    color: black;
+}
+
+.form-signup .form-floating:focus-within {
+    z-index: 2;
+}
+
+.modal-body,
+.modal-content {
+    color: black;
+}

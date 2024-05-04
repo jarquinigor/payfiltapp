@@ -1,0 +1,32 @@
+table {
+    border-radius: 5px;
+    overflow: hidden
+        /* add this */
+}
+
+/* Or do this */
+
+thead th:first-child {
+    border-top-left-radius: 5px;
+}
+
+thead th:last-child {
+    border-top-right-radius: 5px;
+}
+
+tbody tr:last-child :first-child {
+    border-bottom-left-radius: 5px;
+}
+
+tbody tr:last-child :last-child {
+    border-bottom-right-radius: 5px;
+}
+
+.pageLengthButton {
+    background-color:white !important;
+    color:black !important;
+}
+
+.button-page-length {
+    color:black !important;
+}

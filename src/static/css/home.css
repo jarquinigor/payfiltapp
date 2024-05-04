@@ -1,0 +1,23 @@
+body {
+  background-color: #222222;
+}
+
+@media (min-width: 768px) {
+  .navbar-brand.abs {
+    position: absolute;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+}
+
+.title {
+  font-size: calc(1.525rem + 3.3vw);
+}
+
+@media (min-width: 1200px) {
+  .title {
+    font-size: 4rem;
+  }
+}
