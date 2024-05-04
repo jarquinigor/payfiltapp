@@ -10,7 +10,7 @@ def get_conn():
     db_name = config('db_name')
     u_name = config('u_name')
     u_pass = config('u_pass')
-    port_num = 3307
+    port_num = 3306
 
     my_eng = create_engine('mysql+pymysql://' + u_name +
                            ':' + u_pass + '@' + host_name + ':' + str(port_num) + '/' + db_name, echo=False, connect_args={'connect_timeout': 1000})
