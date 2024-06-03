@@ -120,6 +120,24 @@ class DOPayfilt:
             raise Exception(ex)
 
     @classmethod
+    def ValidarExistenciaRazonSocial(cls, razonSocial):
+        try:
+            sql = """SELECT id_empresa 
+                     FROM empresa
+                     WHERE razon_social = '{}'""".format(razonSocial)
+            conn = get_connection()
+            cursor = conn.cursor()
+            cursor.execute(sql)
+            if len(cursor.fetchall()) > 0:
+                conn.disconnect()
+                return True
+            else:
+                conn.disconnect()
+                return False
+        except Exception as ex:
+            raise Exception(ex)
+
+    @classmethod
     def ValidarExistenciaEmail(cls, email):
         try:
             sql = """SELECT id_empresa 
