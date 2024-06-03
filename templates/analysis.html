@@ -31,7 +31,9 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.accuracy }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            <div data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Capacidad del modelo para identificar el porcentaje de etiquetas que han sido clasificadas correctamente. Si el número de etiquetas conocidas encajan con el mismo número de etiquetas clasificadas, entonces se habrá obtenido una precisión de 1.0. Esta métrica se representa mediante la proporción entre los positivos reales predichos por el modelo y el total de casos positivos.">
+                                <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -48,7 +50,10 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.precision }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            <div data-bs-toggle="tooltip" data-bs-placement="left"
+                                data-bs-title="Capacidad del modelo para no etiquetar como positivo a una etiqueta que debe de considerarse como negativa. Esta métrica se representa mediante la proporción entre el número de predicciones correctas, tanto positivas como negativas, y el total de clasificaciones o predicciones. Cuanto más grande sea esta proporción, se tendrá una precision superior.">
+                                <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -65,7 +70,10 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.recall }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            <div data-bs-toggle="tooltip" data-bs-placement="left"
+                                data-bs-title="Capacidad del modelo para evaluar todas las etiquetas en su correspondiente clase. Esta métrica se representa mediante la proporción entre el número de casos positivos identificados correctamente por el modelo, y la suma de positivos reales y falsos negativos. Cabe resaltar que cuanto más cerca de 1.0 esté este valor, el modelo tendrá una recall superior.">
+                                <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,7 +90,10 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.f1_score }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            <div data-bs-toggle="tooltip" data-bs-placement="left"
+                                data-bs-title="Esta métrica se emplea como combinación de las medidas de precision y recall en un solo valor. Es de gran utilidad cuando la distribución de las clases es desigual. Se calcula mediante la media armónica entre la exactitud y sensibilidad o exhaustividad.">
+                                <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -99,7 +110,10 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.mse }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            <div data-bs-toggle="tooltip" data-bs-placement="left"
+                                data-bs-title="El error cuadrático medio representa el promedio de la diferencia al cuadrado entre los valores originales y predichos en el conjunto de datos. Mide la varianza de los residuos.">
+                                <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -116,7 +130,10 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.mae }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            <div data-bs-toggle="tooltip" data-bs-placement="left"
+                                data-bs-title="El error absoluto medio representa el promedio de la diferencia absoluta entre los valores reales y previstos en el conjunto de datos. Mide el promedio de los residuos en el conjunto de datos.">
+                                <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,7 +150,10 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ dataset.rmse }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            <div data-bs-toggle="tooltip" data-bs-placement="left"
+                                data-bs-title="El error raíz cuadrático medio es la raíz cuadrada del error cuadrático medio. Mide la desviación estándar de los residuos.">
+                                <i class="fa-solid fa-heart fa-2x text-gray-300"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
