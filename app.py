@@ -302,9 +302,9 @@ def get_languages():
             if (len(tipoAcciones) > 0):
                 return jsonify({'languages': tipoAcciones, 'message': "SUCCESS", 'success': True})
             else:
-                return jsonify({'message': "NOTFOUND", 'success': True})
+                return jsonify({'message': "Detección realizada satisfactoriamente", 'success': True})
         except CustomException:
-            return jsonify({'message': "ERROR", 'success': False})
+            return jsonify({'message': "Error interno en la detección de fraude para la transacción", 'success': False})
     else:
         response = jsonify({'message': 'Unauthorized'})
         return response, 401
