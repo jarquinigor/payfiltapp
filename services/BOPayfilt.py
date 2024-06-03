@@ -66,6 +66,13 @@ class BOPayfilt:
             raise Exception(ex)
 
     @classmethod
+    def ValidarExistenciaRazonSocial(cls, razonSocial):
+        try:
+            return DOPayfilt.ValidarExistenciaRazonSocial(razonSocial)
+        except Exception as ex:
+            raise Exception(ex)
+
+    @classmethod
     def ValidarExistenciaEmail(cls, email):
         try:
             return DOPayfilt.ValidarExistenciaEmail(email)
