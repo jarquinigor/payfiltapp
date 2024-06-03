@@ -653,6 +653,9 @@ def register():
     flgRUC = BOPayfilt.ValidarExistenciaRUC(_ruc)
     if flgRUC == True:
         flash("El RUC ingresado ya se encuentra registrado...")
+    flgRazonSocial = BOPayfilt.ValidarExistenciaRazonSocial(_razonSocial)
+    if flgRazonSocial == True:
+        flash("La razón social ingresada ya se encuentra registrada...")
 
     if flgEmail != True and flgRUC != True:
         # Generar Nombre Usuario
